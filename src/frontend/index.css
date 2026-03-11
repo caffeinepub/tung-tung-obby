@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/assets/fonts/MonaSans.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 100 900;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Roblox-inspired vivid palette */
+    --background: 0.92 0.04 240;
+    --foreground: 0.15 0.02 240;
+    --card: 0.98 0.01 240;
+    --card-foreground: 0.15 0.02 240;
+    --popover: 0.98 0.01 240;
+    --popover-foreground: 0.15 0.02 240;
+    --primary: 0.62 0.22 25;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.55 0.25 145;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.88 0.04 240;
+    --muted-foreground: 0.45 0.04 240;
+    --accent: 0.75 0.22 55;
+    --accent-foreground: 0.10 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.80 0.06 240;
+    --input: 0.80 0.06 240;
+    --ring: 0.62 0.22 25;
+
+    /* game ui */
+    --game-yellow: 0.88 0.20 85;
+    --game-red: 0.60 0.25 20;
+    --game-green: 0.65 0.22 145;
+    --game-blue: 0.55 0.22 245;
+    --game-purple: 0.55 0.22 295;
+    --game-orange: 0.72 0.22 50;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.205 0 0;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.205 0 0;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.708 0 0;
+  }
+
+  .dark {
+    --background: 0.12 0.03 240;
+    --foreground: 0.95 0.02 240;
+    --card: 0.18 0.03 240;
+    --card-foreground: 0.95 0.02 240;
+    --popover: 0.22 0.03 240;
+    --popover-foreground: 0.95 0.02 240;
+    --primary: 0.75 0.22 55;
+    --primary-foreground: 0.10 0 0;
+    --secondary: 0.55 0.25 145;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.22 0.03 240;
+    --muted-foreground: 0.60 0.04 240;
+    --accent: 0.62 0.22 25;
+    --accent-foreground: 0.98 0 0;
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.205 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.75 0.22 55;
+    --sidebar: 0.205 0 0;
+    --sidebar-foreground: 0.985 0 0;
+    --sidebar-primary: 0.488 0.243 264.376;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.269 0 0;
+    --sidebar-accent-foreground: 0.985 0 0;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.439 0 0;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Mona Sans", sans-serif;
+  }
+}
+
+/* Game HUD styles */
+.game-hud {
+  font-family: "Bricolage Grotesque", sans-serif;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes bounce-in {
+  0% { transform: scale(0.5) translateY(-20px); opacity: 0; }
+  60% { transform: scale(1.1) translateY(5px); opacity: 1; }
+  80% { transform: scale(0.95); }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes flash-respawn {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-flash {
+  animation: flash-respawn 0.4s ease-in-out 3;
+}
